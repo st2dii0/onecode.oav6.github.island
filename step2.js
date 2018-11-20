@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('database', 'username', 'password', {
+const sequelize = new Sequelize('Blyat', 'IamGod', 'justK1dd1ng', {
   host: 'localhost',
   dialect: 'sqlite',
 
@@ -20,7 +20,7 @@ const sequelize = new Sequelize('database', 'username', 'password', {
   operatorsAliases: false
 });
 
-const User = sequelize.define('user', {
+const User = sequelize.define('users', {
     username: { type: Sequelize.STRING, allowNull: false },
     fullname: Sequelize.STRING, 
     password: { type: Sequelize.STRING, allowNull: false },
@@ -38,6 +38,11 @@ const User = sequelize.define('user', {
   .then(jane => {
     console.log(jane.toJSON());
 });
+
+// User.findAll().then(user => {
+//   console.log(user);
+  
+// });
 
 app.listen(4242, () => {
     console.log("Listening on port 4242");
